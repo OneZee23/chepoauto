@@ -1,9 +1,11 @@
-import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
+import { Injectable, Logger, OnApplicationBootstrap } from '@nestjs/common';
 import TelegramBot from 'node-telegram-bot-api';
 import { TelegramConfig } from '@modules/telegram/telegram.config';
 
 @Injectable()
 export class TelegramService implements OnApplicationBootstrap {
+  private readonly logger = new Logger(this.constructor.name);
+
   private readonly bot: TelegramBot;
 
   constructor(private readonly config: TelegramConfig) {
@@ -33,6 +35,9 @@ export class TelegramService implements OnApplicationBootstrap {
 
     this.bot.on('photo', (msg) => {
       const fromId = msg.from.id;
+      this.logger.log(
+        `User id ${fromId} sent photo. #User: ${JSON.stringify(msg.from)}`,
+      );
       const responses = ['Надо брать', 'Это корыто, брат...'];
       const response = responses[Math.floor(Math.random() * responses.length)];
       this.bot.sendMessage(fromId, response);
