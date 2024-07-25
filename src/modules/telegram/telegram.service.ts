@@ -29,7 +29,7 @@ export class TelegramService implements OnApplicationBootstrap {
       const fromId = msg.from.id;
       this.bot.sendMessage(
         fromId,
-        'Инструкция: пришлите фото, и я отвечу "Надо брать" или "Это корыто, брат...".',
+        'Инструкция: пришлите фото, и я отвечу нужна ли тебе такая машина брат.',
       );
     });
 
