@@ -18,6 +18,8 @@ export class TelegramService implements OnApplicationBootstrap {
 
   private initializeBot(): void {
     this.bot.onText(/\/start/, (msg) => {
+      if (msg.chat.type !== 'private') return;
+
       const fromId = msg.from.id;
       this.bot.sendMessage(
         fromId,
@@ -26,6 +28,8 @@ export class TelegramService implements OnApplicationBootstrap {
     });
 
     this.bot.onText(/\/help/, (msg) => {
+      if (msg.chat.type !== 'private') return;
+
       const fromId = msg.from.id;
       this.bot.sendMessage(
         fromId,
@@ -34,6 +38,8 @@ export class TelegramService implements OnApplicationBootstrap {
     });
 
     this.bot.on('photo', (msg) => {
+      if (msg.chat.type !== 'private') return;
+
       const fromId = msg.from.id;
       this.logger.log(
         `User id ${fromId} sent photo. #User: ${JSON.stringify(msg.from)}`,
@@ -44,6 +50,8 @@ export class TelegramService implements OnApplicationBootstrap {
     });
 
     this.bot.on('message', (msg) => {
+      if (msg.chat.type !== 'private') return;
+
       const fromId = msg.from.id;
       if (!msg.photo && msg.text !== '/start' && msg.text !== '/help') {
         this.bot.sendMessage(fromId, 'Пожалуйста, пришлите только фото.');
