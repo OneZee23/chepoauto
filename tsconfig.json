@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": false,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "inlineSourceMap": false,
+    "strictBindCallApply": false,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "resolveJsonModule": true,
+    "paths": {
+      "@common/*": [
+        "src/common/*"
+      ],
+      "@core/*": [
+        "src/core/*"
+      ],
+      "@infra/*": [
+        "src/infra/*"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ]
+    }
+  }
+}
