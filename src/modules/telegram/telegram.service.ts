@@ -44,7 +44,7 @@ export class TelegramService implements OnApplicationBootstrap {
       this.logger.log(
         `User id ${fromId} sent photo. #User: ${JSON.stringify(msg.from)}`,
       );
-      const responses = ['Надо брать', 'Это корыто, брат...'];
+      const responses = ['Надо брать', 'Это корыто, брат...','Лисян хуйня','Лисян не хуйня'];
       const response = responses[Math.floor(Math.random() * responses.length)];
       this.bot.sendMessage(fromId, response);
     });
